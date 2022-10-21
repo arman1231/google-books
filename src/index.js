@@ -2,12 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
+import Book from './Book';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Switch>
+      <Route exact path='/'>
+      <App />
+      </Route>
+      <Route path="/books/:id">
+        <Book />
+      </Route>
+    </Switch>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

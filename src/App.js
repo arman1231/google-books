@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+
 import "./App.scss";
 import axios from "axios";
 import Searchpanel from "./Searchpanel";
@@ -9,8 +9,9 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import { BrowserRouter, Link } from "react-router-dom";
-
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import Book from "./Book";
+ 
 
 function App() {
   const [items, setItems] = useState([]);
@@ -46,7 +47,6 @@ function App() {
     setSearch("");
   }
   return (
-    <BrowserRouter>
     <div className="page">
       <header className="header">
         <h1 className="heading">Smart Book <span className="blue">S</span><span className="red">e</span><span className="yellow">a</span><span className="blue">r</span><span className="green">c</span><span className="red">h</span></h1>
@@ -66,6 +66,7 @@ function App() {
             type="submit"
             variant="contained"
             style={{ padding: "15px 25px 15px 25px", margin: 20 }}
+            disabled={search.length > 0 ? false : true}
           >
             Search
           </Button>
@@ -132,7 +133,6 @@ function App() {
         }) : 'Please make a search...'}
       </ul>
     </div>
-    </BrowserRouter>
   );
 }
 
